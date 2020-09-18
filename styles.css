@@ -1,0 +1,108 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  margin: 0px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #1B242F;
+}
+
+nav > a:link, nav > a:visited {
+  margin: 0.5em;
+  color: #BDFF00;
+  text-decoration: none;
+  font-size: x-large;
+  padding: 0px 0.5em;
+}
+
+nav > a:hover {
+  color: #e31b6d;
+  transition: color 0.2s;
+}
+
+section, nav {
+  width: 100%;
+}
+
+.odd-section {
+  background-color: #F1F1F2;
+}
+
+.even-section {
+  background-color: #FFE9D3;
+}
+
+.odd-section, .even-section {
+  height: calc(100vh - 4em);
+}
+
+#intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 70%;
+  text-align: center;
+  position: relative;
+}
+
+#subtitle {
+  color: #00736C;
+  display: block;
+}
+
+#profile {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 100%;
+  margin-bottom: 3em;
+}
+
+#name {
+  font-size: 36px;
+}
+
+#go-down {
+  border: solid;
+  border-color: grey;
+  border-radius: 100%;
+  border-width: 2px;
+  margin: auto;
+  position: absolute;
+  bottom: -28%;
+  animation-name: stretch;
+  animation-duration: 1.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  transition: background-color 0.3s;
+}
+
+#go-down:hover {
+  background-color: aquamarine;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(.5);
+    border-color: red;
+    color: red;
+    border-radius: 100%;
+  }
+  50% {
+    border-color: orange;
+    color: orange;
+  }
+  100% {
+    transform: scale(1.5);
+    border-color: yellow;
+    color: yellow;
+  }
+}
