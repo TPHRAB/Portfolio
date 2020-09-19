@@ -3,12 +3,16 @@ body {
   height: 100vh;
   font-family: 'Raleway', sans-serif;
   margin: 0px;
+  font-size: 21px;
 }
 
 nav {
   display: flex;
   justify-content: space-evenly;
   background-color: #1B242F;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 nav > a:link, nav > a:visited {
@@ -36,73 +40,127 @@ section, nav {
   background-color: #FFE9D3;
 }
 
-.odd-section, .even-section {
-  height: calc(100vh - 4em);
-}
-
-#intro {
+.flex {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 70%;
+}
+
+.center {
   text-align: center;
-  position: relative;
+}
+
+#intro {
+  height: 50vh;
 }
 
 #subtitle {
   color: #00736C;
-  display: block;
+  font-size: 18px;
 }
 
 #profile {
-  width: 15vw;
-  height: 15vw;
+  width: 8vw;
+  height: 8vw;
   border-radius: 100%;
   margin-bottom: 3em;
 }
 
-#name {
+.title, #name {
+  margin: 0;
   font-size: 36px;
 }
 
-#go-down {
-  border: solid;
-  border-color: grey;
-  border-radius: 100%;
-  border-width: 2px;
-  margin: auto;
-  position: absolute;
-  bottom: -28%;
-  animation-name: stretch;
-  animation-duration: 1.5s; 
-  animation-timing-function: ease-out; 
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-fill-mode: none;
-  animation-play-state: running;
-  transition: background-color 0.3s;
+.secondary-title {
+  font-size: 24px;
 }
 
-#go-down:hover {
-  background-color: aquamarine;
+.title {
+  padding: 1em 0 1em 0;
 }
 
-@keyframes stretch {
-  0% {
-    transform: scale(.5);
-    border-color: red;
-    color: red;
-    border-radius: 100%;
-  }
-  50% {
-    border-color: orange;
-    color: orange;
-  }
-  100% {
-    transform: scale(1.5);
-    border-color: yellow;
-    color: yellow;
-  }
+.title, .secondary-title {
+  user-select: none;
+}
+
+.content {
+  width: 65%;
+  padding-bottom: 2em;
+}
+
+#about p {
+  margin-top: 0;
+}
+
+.skills-category {
+  width: 100%;
+  border-radius: 20px;
+  min-height: 5vh;
+  margin-bottom: 2em;
+}
+
+#programming-languages {
+  background-color: #F4CC70;
+}
+
+#web {
+  background-color: #DE7A22;
+}
+
+#automation {
+  background-color: #6AB187;
+}
+
+#display-options {
+  color: #717171;
+}
+
+#display-options span {
+  margin: 0.5em;
+}
+
+#display-options .selected {
+  color: black;
+  background-color: #09F6AF;
+  padding: 0 0.5em 0 0.5em;
+}
+
+svg {
+  vertical-align: text-bottom;
+}
+
+#contact p {
+  text-align: center;
+  margin-top: 0;
+  font-size: 22px;
+}
+
+#email {
+  text-decoration: none;
+  color: black;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px !important;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-github {
+  background: black;
+  color: white;
 }
