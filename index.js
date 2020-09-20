@@ -28,7 +28,8 @@
     qsa('.skills-category').forEach(div => 
       div.addEventListener('click', fullyDisplaySection)
     );
-    qs('#display-options').addEventListener('click', selectView);
+    qsa('#display-options span').forEach(span =>
+      span.addEventListener('click', selectView));
 
     // set up smooth scorlling
     setUpSmoothScroll('about-anchor', 'about');

@@ -92,6 +92,10 @@ section {
   white-space: nowrap; 
 }
 
+.center {
+  text-align: center;
+}
+
 .content {
   margin: auto;
   width: 65%;
@@ -248,5 +252,71 @@ hr {
 }
 
 .active {
-  color: black;
+  color: #ff4e02;
+}
+
+.card {
+  position: relative;
+  margin: 1em 0;
+  text-align: center;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  padding: 0.5em;
+}
+
+.card > img {
+  border-radius: 10px;
+  width: 400px;
+  height: 200px;
+  transition: all 0.3s;
+  box-shadow: 0px 0px 30px 5px grey;
+}
+
+.card h7 {
+  display: block;
+  padding: 0.5em 0;
+  transition: all 0.3s;
+}
+
+.card-content {
+  display: none;
+}
+
+.card-content span {
+  display: block;
+  margin: auto;
+}
+
+.card-subtitle {
+  font-size: 15px;
+  color: #09F6AF;
+}
+
+.card button {
+  cursor: pointer;
+  width: 60%;
+  border: solid 1px #BDFF00;
+  background-color: transparent;
+  color: #BDFF00;
+  padding: 1em 0;
+  margin: 10%;
+}
+
+.card:hover .card-content {
+  display: block;
+  width: calc(100% - 1em);
+  position: absolute;
+  top: 3em;
+}
+
+.card:hover img {
+  opacity: 0;
+}
+
+.card:hover h7 {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 5px;
 }
