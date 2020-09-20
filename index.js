@@ -21,6 +21,9 @@
     return document.querySelectorAll(selector);
   }
 
+  let offsets = new Map();
+  let currentActive = null;
+
   /**
    * Add event listeners to elements
    */
@@ -32,16 +35,48 @@
       span.addEventListener('click', selectView));
 
     // set up smooth scorlling
-    setUpSmoothScroll('about-anchor', 'about');
-    setUpSmoothScroll('skills-anchor', 'skills');
-    setUpSmoothScroll('projects-anchor', 'projects');
+    // Insert into offsets from bottom to top for easy comparision
     setUpSmoothScroll('contact-anchor', 'contact');
+    setUpSmoothScroll('projects-anchor', 'projects');
+    setUpSmoothScroll('skills-anchor', 'skills');
+    setUpSmoothScroll('about-anchor', 'about');
+
+    // highlight seciton in navbar when the user reaches a section
+    window.addEventListener('scroll', detectNewSection);
   }
 
   const setUpSmoothScroll = (anchorId, targetId) => {
-    id(anchorId).addEventListener('click', () => {
-      id(targetId).scrollIntoView({behavior: 'smooth'})
+    let anchor = id(anchorId);
+    let target = id(targetId);
+    anchor.addEventListener('click', () => {
+      target.scrollIntoView({behavior: 'smooth'})
     });
+    offsets.set(target.offsetTop, anchor);
+  }
+
+  const detectNewSection = () => {
+    let currentPosition = document.documentElement.scrollTop;
+
+    // find matched section
+    let match = null;
+    for (let distance of offsets.keys()) {
+      if (currentPosition >= distance) {
+        match = offsets.get(distance);
+        break;
+      }
+    }
+    
+    if (match && currentActive !== match) {
+      if (currentActive) {
+          currentActive.classList.remove('active');
+          currentActive = null;
+      }
+      match.classList.add('active');
+      currentActive = match;
+    } else if (!match && currentActive) {
+      currentActive.classList.remove('active');
+      currentActive = null;
+    }
   }
 
   /**
