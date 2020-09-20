@@ -5,23 +5,22 @@
     <link rel="stylesheet" href="./styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="index.js"></script>
   </head>
   <body>
     <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#Contact">Contact</a>
+      <span id="about-anchor">About</span>
+      <span id="skills-anchor">Skills</span>
+      <span id="projects-anchor">Projects</span>
+      <span id="contact-anchor">Contact</span>
     </nav>
     <main>
-      <section id="intro" class="odd-section flex center">
+      <section id="intro" class="odd-section flex">
         <img src="./imgs/me.png" id="profile">
-        <div>
-          <h1 id="name">Chenzhe Timmy Zhao</h1>
-          <p id="subtitle">Student looking for Internship</p>
-        </div>
+        <h1 id="name">Chenzhe Timmy Zhao</h1>
+        <p id="subtitle">Student looking for Internship</p>
       </section>
-      <section id="about" class="even-section flex">
+      <section id="about" class="even-section">
         <h1 class="title">About me</h1>
         <div class="content">
           <p>
@@ -37,28 +36,95 @@
           </p>
         </div>
       </section>
-      <section id="skills" class="odd-section flex">
+      <section id="skills" class="odd-section">
         <h1 class="title">Skills</h1>
         <div class="content">
-          <div id="programming-languages" class="skills-category flex">
+          <div id="programming-languages" class="skills-category selectable">
             <h2 class="secondary-title">Programming Languages</h2>
+            <div class="dummy"></div>
+            <div class="hidden skill-list-wrapper">
+              <hr/>
+              <div class="horizontal-list">
+                <div class="skill flex">
+                  <img src="./imgs/javascript.png">
+                  <span>JavaScript</span>
+                </div>
+                <div class="skill flex">
+                  <img src="./imgs/python.png">
+                  <span>Python</span>
+                </div>
+                <div class="skill flex">
+                  <img src="./imgs/java.png">
+                  Java
+                </div>
+              </div>
+            </div>
           </div>
-          <div id="web" class="skills-category flex">
+          <div id="web" class="skills-category selectable">
             <h2 class="secondary-title">Web</h2>
+            <div class="dummy"></div>
+            <div class="skill-list-wrapper hidden">
+              <hr/>
+              <div class="horizontal-list">
+                <div class="skill flex">
+                  <img src="./imgs/javascript.png">
+                  <span>JavaScript</span>
+                </div>
+                <div class="skill flex">
+                  <img id="react-icon" src="./imgs/react.png">
+                  <span>React</span>
+                </div>
+                <div class="skill flex">
+                  <img src="./imgs/HTML5.png">
+                  <span>HTML</span>
+                </div>
+                <div class="skill flex">
+                  <img src="./imgs/css.png">
+                  <span>CSS</span>
+                </div>
+                <div class="skill flex">
+                  <img src="./imgs/nodejs.png">
+                  <span>Node.js</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div id="automation" class="skills-category flex">
-            <h2 class="secondary-title">Automation</h2>
+          <div id="automation" class="skills-category selectable">
+            <h2 class="secondary-title">Data Proceccing</h2>
+            <div class="dummy"></div>
+            <div class="skill-list-wrapper hidden">
+              <hr/>
+              <div class="horizontal-list">
+                <div class="skill flex">
+                  <img src="./imgs/python.png">
+                  <span>Python</span>
+                </div>
+                <div class="skill flex">
+                  <img id="sql-icon" src="./imgs/sql.png">
+                  <span>SQL</span>
+                </div>
+                <div class="skill flex">
+                  <img src="./imgs/tensorflow.png">
+                  <span>Tensorflow</span>
+                </div>
+                <div class="skill flex">
+                  <img id="selenium-icon" src="./imgs/selenium.png">
+                  <span>Selenium</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      <section id="projects" class="even-section flex">
+      <section id="projects" class="even-section">
         <h1 class="title">Projects</h1>
-        <div id="display-options">
-          <span>ALL</span>
-          <span class="selected">TIMELINE</span>
+        <div id="display-options" class="center">
+          <span class="option active">ALL</span>
+          <span class="option">TIMELINE</span>
+          <div id="highlight"></div>
         </div>
       </section>
-      <section id="contact" class="event-section flex">
+      <section id="contact" class="odd-section flex">
         <h1 class="title">Contact</h1>
         <a id="email" href="mailto: zhaoc24@uw.edu">
           <p>

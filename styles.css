@@ -13,17 +13,17 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
-nav > a:link, nav > a:visited {
+nav > span {
   margin: 0.5em;
   color: #BDFF00;
   text-decoration: none;
-  font-size: x-large;
-  padding: 0px 0.5em;
+  font-size: 24px;
 }
 
-nav > a:hover {
+nav > span:hover {
   color: #e31b6d;
   transition: color 0.2s;
 }
@@ -47,12 +47,14 @@ section, nav {
   flex-direction: column;
 }
 
-.center {
-  text-align: center;
+section {
+  margin-top: calc(24px + 1em);
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 #intro {
-  height: 50vh;
+  min-height: 38vh;
 }
 
 #subtitle {
@@ -67,8 +69,11 @@ section, nav {
   margin-bottom: 3em;
 }
 
-.title, #name {
+#name {
   margin: 0;
+}
+
+.title {
   font-size: 36px;
 }
 
@@ -80,11 +85,15 @@ section, nav {
   padding: 1em 0 1em 0;
 }
 
-.title, .secondary-title {
+.title, .secondary-title, .center {
+  max-width: min-content;
+  margin: auto;
   user-select: none;
+  white-space: nowrap; 
 }
 
 .content {
+  margin: auto;
   width: 65%;
   padding-bottom: 2em;
 }
@@ -96,8 +105,12 @@ section, nav {
 .skills-category {
   width: 100%;
   border-radius: 20px;
-  min-height: 5vh;
   margin-bottom: 2em;
+  min-height: calc(24px + 1em);
+}
+
+.skills-category > .secondary-title {
+  padding: 0.5em;
 }
 
 #programming-languages {
@@ -113,17 +126,15 @@ section, nav {
 }
 
 #display-options {
+  margin: auto;
+  position: relative;
   color: #717171;
+  width: fit-content;
+  opacity: 1;
 }
 
 #display-options span {
   margin: 0.5em;
-}
-
-#display-options .selected {
-  color: black;
-  background-color: #09F6AF;
-  padding: 0 0.5em 0 0.5em;
 }
 
 svg {
@@ -163,4 +174,79 @@ svg {
 .fa-github {
   background: black;
   color: white;
+}
+
+hr {
+  border: 1px solid white;
+  width: 80%;
+  margin: 0 auto;
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.horizontal-list {
+  animation: slideInRight 0.75s ease forwards;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: calc(100% - 1px);
+}
+
+.skill > img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.skill-list-wrapper {
+  margin: auto;
+  width: 65%;
+  height: 100px;
+}
+
+#react-icon {
+  width: 60px;
+}
+
+#sql-icon, #selenium-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.selectable {
+  cursor: pointer;
+}
+
+#highlight {
+  background-color: #09F6AF;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 59px;
+  height: 25px;
+  transition: all 0.5s ease-in-out;
+}
+
+.option {
+  padding: 0 0.5em;
+  position: relative;
+  z-index: 1;
+}
+
+.active {
+  color: black;
 }
