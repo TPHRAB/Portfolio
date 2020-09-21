@@ -51,7 +51,7 @@
     anchor.addEventListener('click', () => {
       target.scrollIntoView({behavior: 'smooth'})
     });
-    offsets.set(target.offsetTop, anchor);
+    offsets.set(target.offsetTop, [anchor, target]);
   }
 
   const detectNewSection = () => {
@@ -60,8 +60,9 @@
     // find matched section
     let match = null;
     for (let distance of offsets.keys()) {
-      if (currentPosition >= distance) {
-        match = offsets.get(distance);
+      let [anchor, target] = offsets.get(distance);
+      if (currentPosition + target.offsetHeight / 3 >= distance) {
+        match = anchor;
         break;
       }
     }
@@ -106,14 +107,26 @@
   }
 
   const selectView = (event) => {
-    let lastActive = qs('.active');
-    if (lastActive !== event.target) {
+    let lastActive = qs('.option.active');
+    if (lastActive !== event.currentTarget) {
       if (lastActive)
         lastActive.classList.remove('active')
       let highlight = id('highlight');
       highlight.style.width = event.target.offsetWidth + 'px';
       highlight.style.left = event.target.offsetLeft + 'px';
-      event.target.classList.add('active')
+      event.currentTarget.classList.add('active')
+
+      let selectedLanguage = event.currentTarget.getAttribute('language');
+      let galary = id('galary');
+      for (let project of galary.children) {
+        if (selectedLanguage && project.getAttribute('language') !== selectedLanguage) {
+          console.log(project.offsetHeight)
+          console.log(project.offsetHeight - 5 + 'px')
+          project.style.height = project.offsetHeight - 5 + 'px'
+        } else {
+          project.classList.remove('hidden');
+        }
+      }
     }
   }
 
