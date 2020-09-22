@@ -300,7 +300,7 @@ hr {
   color: #09F6AF;
 }
 
-.card a {
+.card button {
   font-size: 13px;
   text-decoration: none;
   display: inline-block;
@@ -318,7 +318,7 @@ hr {
   z-index: 1;
 }
 
-.card a:hover {
+.card button:hover {
   background-color: #BDFF00;
   color: black;
 }
@@ -352,7 +352,7 @@ hr {
 }
 
 .slideUp {
-  animation: slideInUp 0.75s ease forwards;
+  animation: slideInUp 0.75s ease;
 }
 
 @keyframes slideInUp {
@@ -364,4 +364,103 @@ hr {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#image-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+}
+
+#image-slider img {
+  display: none;
+  width: 100%;
+  animation: fadeIn 1s ease;
+}
+
+#image-slider #prev {
+  left: 0;
+  transform: translateX(-120%);
+}
+
+#image-slider #next {
+  right: 0;
+  transform: translateX(120%);
+}
+
+
+#image-slider #prev, #image-slider #next {
+  position: absolute;
+  top: 35%;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  transition: 0.4s ease;
+  color: white;
+  border-radius: 5px;
+  font-size: 40px;
+  padding: 0.5em;
+}
+
+#image-slider #prev:hover, #image-slider #next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #717171;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.selected, .dot:hover {
+  background-color: white;
+}
+
+#indicies {
+  text-align: center;
+  margin-top: 1em;
 }
