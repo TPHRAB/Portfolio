@@ -118,15 +118,17 @@
 
       let selectedLanguage = event.currentTarget.getAttribute('language');
       let galary = id('galary');
-      for (let project of galary.children) {
-        if (selectedLanguage && project.getAttribute('language') !== selectedLanguage) {
-          console.log(project.offsetHeight)
-          console.log(project.offsetHeight - 5 + 'px')
-          project.style.height = project.offsetHeight - 5 + 'px'
-        } else {
-          project.classList.remove('hidden');
+      galary.classList.remove('slideUp');
+      setTimeout(() => {
+        for (let project of galary.children) {
+          if (selectedLanguage && project.getAttribute('language') !== selectedLanguage) {
+            project.classList.add('hidden');
+          } else {
+            project.classList.remove('hidden');
+          }
         }
-      }
+        galary.classList.add('slideUp');
+      }, 100);
     }
   }
 
