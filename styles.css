@@ -125,7 +125,7 @@ section {
   background-color: #DE7A22;
 }
 
-#automation {
+#data-processing {
   background-color: #6AB187;
 }
 
@@ -318,7 +318,7 @@ hr {
   z-index: 1;
 }
 
-.card button:hover {
+.card button:hover, .project-images a {
   background-color: #BDFF00;
   color: black;
 }
@@ -385,7 +385,7 @@ hr {
   width: 50vw;
 }
 
-#image-slider img {
+.project-images > * {
   display: none;
   width: 100%;
   animation: fadeIn 1s ease;
@@ -463,4 +463,40 @@ hr {
 #indicies {
   text-align: center;
   margin-top: 1em;
+}
+
+#image-slider .project-images {
+  display: none;
+}
+
+.project-images .project-description {
+  color: white;
+  width: 100%;
+  min-height: 50vh;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+}
+
+.project-description h3 {
+  color: #BDFF00;
+}
+
+.project-description p {
+  margin-top: 0;
+}
+
+.project-images a {
+  padding: 1em 2em;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.project-images a:hover {
+  background-color: transparent;
+  color: #BDFF00;
+  transform: scale(1.2);
 }

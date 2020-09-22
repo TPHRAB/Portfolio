@@ -15,11 +15,15 @@
       <span id="contact-anchor">Contact</span>
     </nav>
     <main>
+
+      <!-- intro -->
       <section id="intro" class="odd-section flex">
         <img src="./imgs/me.png" id="profile">
         <h1 id="name">Chenzhe Timmy Zhao</h1>
         <p id="subtitle">Student looking for Internship</p>
       </section>
+
+      <!-- about -->
       <section id="about" class="even-section">
         <h1 class="title">About me</h1>
         <div class="content">
@@ -36,9 +40,13 @@
           </p>
         </div>
       </section>
+
+      <!-- skills -->
       <section id="skills" class="odd-section">
         <h1 class="title">Skills</h1>
         <div class="content">
+
+          <!-- Programming languages-->
           <div id="programming-languages" class="skills-category selectable">
             <h2 class="secondary-title">Programming Languages</h2>
             <div class="dummy"></div>
@@ -60,6 +68,8 @@
               </div>
             </div>
           </div>
+
+          <!-- web -->
           <div id="web" class="skills-category selectable">
             <h2 class="secondary-title">Web</h2>
             <div class="dummy"></div>
@@ -89,7 +99,9 @@
               </div>
             </div>
           </div>
-          <div id="automation" class="skills-category selectable">
+
+          <!-- data processing -->
+          <div id="data-processing" class="skills-category selectable">
             <h2 class="secondary-title">Data Proceccing</h2>
             <div class="dummy"></div>
             <div class="skill-list-wrapper hidden">
@@ -116,8 +128,12 @@
           </div>
         </div>
       </section>
+
+      <!-- projects -->
       <section id="projects" class="even-section">
         <h1 class="title">Projects</h1>
+
+        <!-- selected view -->
         <div id="display-options" class="center">
           <span class="option active">ALL</span>
           <span class="option" language="javascript">JAVASCRIPT</span>
@@ -125,28 +141,45 @@
           <span class="option" language="java">JAVA</span>
           <div id="highlight"></div>
         </div>
+
+        <!-- Card view of all the projects-->
         <div id="galary" class="slideUp">
           <div class="card" language="javascript">
             <img src="./imgs/WorkAgenda.png">
             <h7>WorkAgenda</h7>
             <div class="card-content">
               <span class="card-subtitle">JavaScript / React / Node / Database</span>
-              <button>LEARN MORE</button>
+              <button id="work-agenda">LEARN MORE</button>
             </div>
           </div>
         </div>
+
+        <!-- images of a project -->
         <div id="popup" class="fade-in">
           <div id="image-slider">
-            <img src="./imgs/WorkAgenda.png">
-            <img src="./imgs/WorkAgenda.png">
+            <div id="work-agenda" class="project-images">
+              <img src="./imgs/WorkAgenda.png">
+              <img src="./imgs/WorkAgenda.png">
+              <div class="project-description">
+                <h3>WorkAgenda</h3>
+                <p>
+                  A web application that can manage project bugs
+                </p>
+                <a href="https://github.com/TPHRAB/WorkAgenda">View on GitHub</a>
+              </div>
+            </div>
+
+            <!-- previous button and next button -->
             <button id="prev">&#10094;</button>
             <button id="next">&#10095;</button>
 
-            <div id="indicies">
-            </div>
+            <!-- Allow user to go to a image -->
+            <div id="indicies"></div>
           </div>
         </div>
       </section>
+
+      <!-- Contact -->
       <section id="contact" class="odd-section flex">
         <h1 class="title">Contact</h1>
         <a id="email" href="mailto: zhaoc24@uw.edu">

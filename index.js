@@ -51,7 +51,7 @@
 
     // switch to next image
     qs('#image-slider #next').addEventListener('click', () => {
-      if (currentIndex === imgs.length - 1)
+      if (currentIndex === slides.length - 1)
         displaySlide(0);
       else
         displaySlide(currentIndex + 1);
@@ -60,7 +60,7 @@
     // switch to previous image
     qs('#image-slider #prev').addEventListener('click', () => {
       if (currentIndex === 0)
-        displaySlide(imgs.length - 1);
+        displaySlide(slides.length - 1);
       else 
         displaySlide(currentIndex - 1);
     });
@@ -70,51 +70,64 @@
   }
 
   let currentIndex = -1;
-  let imgs;
-  const showImageSlider = () => {
+  let slides;
+  const showImageSlider = (event) => {
     let popup = id('popup');
 
     // show fade in animation
     popup.classList.remove('fade-out');
     popup.classList.add('fade-in');
 
+    // show project's image slider
+    let currentProject = popup.querySelector(`#${event.currentTarget.id}`);
+    currentProject.style.display = 'block';
+
     // show popup
     popup.style.display = 'block';
-    imgs = popup.querySelectorAll('img');
+    slides = currentProject.children;
     
     // add dots representing for image indicies
     let indicies = qs('#indicies');
-    for (let i = 0; i < imgs.length; i++) {
+    for (let i = 0; i < slides.length; i++) {
       let dot = document.createElement('span');
       dot.classList.add('dot');
       dot.addEventListener('click', () => displaySlide(i));
       indicies.appendChild(dot);
+
+      // reset currentIndex
+      currentIndex = -1;
     }
     displaySlide(0);
   }
 
   const displaySlide = (newIndex) => {
-    if (currentIndex != -1) // hide previous viewed index
-      imgs[currentIndex].style.display = 'none';
+    if (currentIndex !== -1) // hide previous viewed index
+      slides[currentIndex].style.display = 'none';
 
     // show image
-    imgs[newIndex].style.display = 'block';
-    currentIndex = newIndex;
+    if (slides[newIndex].classList.contains('project-description'))
+      slides[newIndex].style.display = 'flex';
+    else
+      slides[newIndex].style.display = 'block';
 
     // unselect previous selected index
     let previousSelected = qs('.selected');
     if (previousSelected)
       previousSelected.classList.remove('selected');
     qsa('.dot')[newIndex].classList.add('selected')
+
+    currentIndex = newIndex;
   }
 
   const closePopup = (event) => {
-    if (event.target === event.currentTarget && event.currentTarget.id === 'popup') {
+    if (event.target === event.currentTarget
+        && event.currentTarget.id === 'popup') {
       event.target.classList.remove('fade-in');
       event.target.classList.add('fade-out');
       setTimeout(() => {
         id('indicies').innerHTML = '';
         event.target.style.display = 'none';
+        slides[currentIndex].style.display = 'none';
       }, 500);
     }
   }
