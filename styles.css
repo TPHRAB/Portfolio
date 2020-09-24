@@ -266,7 +266,7 @@ hr {
   border-radius: 10px;
   color: white;
   padding: 0.5em;
-  height: 251px;
+  height: 270px;
   margin: 0.5em;
   overflow: hidden;
   transition: transform 0.2s;
@@ -275,14 +275,14 @@ hr {
 .card > img {
   border-radius: 10px;
   width: 400px;
-  height: 200px;
+  height: 220px;
   transition: all 0.3s;
   box-shadow: 0px 0px 30px 5px grey;
 }
 
 .card h7 {
   display: block;
-  padding: 0.5em 0;
+  padding: 0.6em 0;
   transition: all 0.3s;
 }
 
