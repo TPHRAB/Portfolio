@@ -111,22 +111,39 @@ section {
   border-radius: 20px;
   margin-bottom: 2em;
   min-height: calc(24px + 1em);
+  transition: all 0.2s;
 }
 
 .skills-category > .secondary-title {
   padding: 0.5em;
 }
 
+.skills-category > * {
+  user-select: none;
+}
+
 #programming-languages {
-  background-color: #F4CC70;
+  background-color: rgb(244,204,112);
+}
+
+#programming-languages:hover {
+  background-color: rgba(244,204,112, 0.5);
 }
 
 #web {
-  background-color: #DE7A22;
+  background-color: rgb(222,122,34);
+}
+
+#web:hover {
+  background-color: rgba(222,122,34, 0.5);
 }
 
 #data-processing {
-  background-color: #6AB187;
+  background-color: rgb(106,177,135);
+}
+
+#data-processing:hover {
+  background-color: rgba(106,177,135, 0.5);
 }
 
 #display-options {
@@ -233,6 +250,11 @@ hr {
 
 .selectable {
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selectable:hover {
+  scale: 1.2;
 }
 
 #highlight {

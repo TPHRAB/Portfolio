@@ -185,6 +185,7 @@
         clearInterval(id);
         dummy.style.height = '100px';
         div.classList.remove('selectable');
+        div.removeEventListener('click', fullyDisplaySection);
         dummy.remove();
         div.querySelector('.hidden').classList.remove('hidden');
       } else {
