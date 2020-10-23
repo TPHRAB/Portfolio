@@ -61,7 +61,7 @@
     let match = null;
     for (let distance of offsets.keys()) {
       let [anchor, target] = offsets.get(distance);
-      if (currentPosition + target.offsetHeight / 3 >= distance) {
+      if (currentPosition + target.offsetHeight / 2 >= distance) {
         match = anchor;
         break;
       }
