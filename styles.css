@@ -111,22 +111,39 @@ section {
   border-radius: 20px;
   margin-bottom: 2em;
   min-height: calc(24px + 1em);
+  transition: all 0.2s;
 }
 
 .skills-category > .secondary-title {
   padding: 0.5em;
 }
 
+.skills-category > * {
+  user-select: none;
+}
+
 #programming-languages {
-  background-color: #F4CC70;
+  background-color: rgb(244,204,112);
+}
+
+#programming-languages:hover {
+  background-color: rgba(244,204,112, 0.5);
 }
 
 #web {
-  background-color: #DE7A22;
+  background-color: rgb(222,122,34);
 }
 
-#automation {
-  background-color: #6AB187;
+#web:hover {
+  background-color: rgba(222,122,34, 0.5);
+}
+
+#data-processing {
+  background-color: rgb(106,177,135);
+}
+
+#data-processing:hover {
+  background-color: rgba(106,177,135, 0.5);
 }
 
 #display-options {
@@ -233,6 +250,11 @@ hr {
 
 .selectable {
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.selectable:hover {
+  scale: 1.2;
 }
 
 #highlight {
@@ -266,7 +288,7 @@ hr {
   border-radius: 10px;
   color: white;
   padding: 0.5em;
-  height: 251px;
+  height: 270px;
   margin: 0.5em;
   overflow: hidden;
   transition: transform 0.2s;
@@ -275,14 +297,14 @@ hr {
 .card > img {
   border-radius: 10px;
   width: 400px;
-  height: 200px;
+  height: 220px;
   transition: all 0.3s;
   box-shadow: 0px 0px 30px 5px grey;
 }
 
 .card h7 {
   display: block;
-  padding: 0.5em 0;
+  padding: 0.6em 0;
   transition: all 0.3s;
 }
 
@@ -300,7 +322,7 @@ hr {
   color: #09F6AF;
 }
 
-.card a {
+.card button {
   font-size: 13px;
   text-decoration: none;
   display: inline-block;
@@ -318,7 +340,7 @@ hr {
   z-index: 1;
 }
 
-.card a:hover {
+.card button:hover, .project-images a {
   background-color: #BDFF00;
   color: black;
 }
@@ -352,7 +374,7 @@ hr {
 }
 
 .slideUp {
-  animation: slideInUp 0.75s ease forwards;
+  animation: slideInUp 0.75s ease;
 }
 
 @keyframes slideInUp {
@@ -364,4 +386,139 @@ hr {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#image-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+}
+
+.project-images > * {
+  display: none;
+  width: 100%;
+  animation: fadeIn 1s ease;
+}
+
+#image-slider #prev {
+  left: 0;
+  transform: translateX(-120%);
+}
+
+#image-slider #next {
+  right: 0;
+  transform: translateX(120%);
+}
+
+
+#image-slider #prev, #image-slider #next {
+  position: absolute;
+  top: 35%;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  transition: 0.4s ease;
+  color: white;
+  border-radius: 5px;
+  font-size: 40px;
+  padding: 0.5em;
+}
+
+#image-slider #prev:hover, #image-slider #next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: #717171;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.selected, .dot:hover {
+  background-color: white;
+}
+
+#indicies {
+  text-align: center;
+  margin-top: 1em;
+}
+
+#image-slider .project-images {
+  display: none;
+}
+
+.project-images .project-description {
+  color: white;
+  width: 100%;
+  min-height: 50vh;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+}
+
+.project-description h3 {
+  color: #BDFF00;
+}
+
+.project-description p {
+  margin-top: 0;
+}
+
+.project-images a {
+  padding: 1em 2em;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.project-images a:hover {
+  background-color: transparent;
+  color: #BDFF00;
+  transform: scale(1.2);
 }

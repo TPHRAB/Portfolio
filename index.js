@@ -43,6 +43,93 @@
 
     // highlight seciton in navbar when the user reaches a section
     window.addEventListener('scroll', detectNewSection);
+
+    // display image slider
+    qsa('#galary button').forEach((button) => {
+      button.addEventListener('click', showImageSlider);
+    });
+
+    // switch to next image
+    qs('#image-slider #next').addEventListener('click', () => {
+      if (currentIndex === slides.length - 1)
+        displaySlide(0);
+      else
+        displaySlide(currentIndex + 1);
+    });
+
+    // switch to previous image
+    qs('#image-slider #prev').addEventListener('click', () => {
+      if (currentIndex === 0)
+        displaySlide(slides.length - 1);
+      else 
+        displaySlide(currentIndex - 1);
+    });
+
+    // close popup
+    id('popup').addEventListener('click', closePopup);
+  }
+
+  let currentIndex = -1;
+  let slides;
+  const showImageSlider = (event) => {
+    let popup = id('popup');
+
+    // show fade in animation
+    popup.classList.remove('fade-out');
+    popup.classList.add('fade-in');
+
+    // show project's image slider
+    let currentProject = popup.querySelector(`#${event.currentTarget.id}`);
+    currentProject.style.display = 'block';
+
+    // show popup
+    popup.style.display = 'block';
+    slides = currentProject.children;
+    
+    // add dots representing for image indicies
+    let indicies = qs('#indicies');
+    for (let i = 0; i < slides.length; i++) {
+      let dot = document.createElement('span');
+      dot.classList.add('dot');
+      dot.addEventListener('click', () => displaySlide(i));
+      indicies.appendChild(dot);
+
+      // reset currentIndex
+      currentIndex = -1;
+    }
+    displaySlide(0);
+  }
+
+  const displaySlide = (newIndex) => {
+    if (currentIndex !== -1) // hide previous viewed index
+      slides[currentIndex].style.display = 'none';
+
+    // show image
+    if (slides[newIndex].classList.contains('project-description'))
+      slides[newIndex].style.display = 'flex';
+    else
+      slides[newIndex].style.display = 'block';
+
+    // unselect previous selected index
+    let previousSelected = qs('.selected');
+    if (previousSelected)
+      previousSelected.classList.remove('selected');
+    qsa('.dot')[newIndex].classList.add('selected')
+
+    currentIndex = newIndex;
+  }
+
+  const closePopup = (event) => {
+    if (event.target === event.currentTarget
+        && event.currentTarget.id === 'popup') {
+      event.target.classList.remove('fade-in');
+      event.target.classList.add('fade-out');
+      setTimeout(() => {
+        id('indicies').innerHTML = '';
+        event.target.style.display = 'none';
+        slides[currentIndex].style.display = 'none';
+      }, 500);
+    }
   }
 
   const setUpSmoothScroll = (anchorId, targetId) => {
@@ -98,6 +185,7 @@
         clearInterval(id);
         dummy.style.height = '100px';
         div.classList.remove('selectable');
+        div.removeEventListener('click', fullyDisplaySection);
         dummy.remove();
         div.querySelector('.hidden').classList.remove('hidden');
       } else {
